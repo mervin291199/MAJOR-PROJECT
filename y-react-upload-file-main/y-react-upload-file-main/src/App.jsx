@@ -7,26 +7,25 @@ import {BrowserRouter as  Router, Switch, Route} from 'react-router-dom';
 
 
 
-
 function App() {
 
-  const LOCAL_STORAGE_KEY = "files";
+   const LOCAL_STORAGE_KEY = "files";
   const [files, setFiles] = useState([])
 
   const removeFile = (filename) => {
     setFiles(files.filter(file => file.name !== filename))
-  }
+  } 
   
-     useEffect(() =>{
-     const retrieveFiles = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+      useEffect(() =>{
+    const retrieveFiles = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
      if (retrieveFiles) setFiles(retrieveFiles)
-   }, []);
+    }, []);
 
-  useEffect(() =>{
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(files))
-  }, [files]);
+   useEffect(() =>{
+     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(files))
+   }, [files]);
   return (
-
+    
     <div className="App">
      <Router>
         <Header />
@@ -65,4 +64,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
